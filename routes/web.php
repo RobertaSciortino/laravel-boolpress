@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/contatti', 'HomeController@contatti')->name('contatti');
 
+
 Auth::routes(['register' => false]);
 
 //gruppo di rotte admin
 Route::middleware('auth')->name('admin.')->namespace('Admin')->prefix('admin')->group(function(){
   Route::get('/', 'HomeController@index')->name('index');
+  Route::resource('/posts', 'PostController');
 });

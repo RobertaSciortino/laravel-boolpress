@@ -20,4 +20,9 @@ class HomeController extends Controller
     {
         return view('guest.contatti');
     }
+
+    public function posts()
+    {
+        return view('guest.posts.index');
+    }
 }
