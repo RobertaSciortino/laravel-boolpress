@@ -21,5 +21,5 @@ Auth::routes();
 
 //gruppo di rotte admin
 Route::get('/home', 'Admin\HomeController@index')->name('dashboard')->middleware('auth')->namespace('admin')->prefix('admin')->group(function(){
-  Route::get('/home', 'HomeController@index')->name('home');
+  Route::get('/home', 'HomeController@index')->name('index');
 });
