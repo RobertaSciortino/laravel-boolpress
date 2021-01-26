@@ -13,6 +13,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('wwelcome');
+        return view('guest.welcome');
     }
 }
