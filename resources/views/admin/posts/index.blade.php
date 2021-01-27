@@ -29,9 +29,14 @@
           <a href="{{ route('admin.posts.create')}}" class="btn btn-primary">
             Crea
           </a>
-          <a href="{{ route('admin.posts.edit', ['post' => $post->id])}}" class="btn btn-primary">
+          <a href="{{ route('admin.posts.edit', ['post' => $post->id])}}" class="btn btn-warning">
             Modifica
           </a>
+          <form action="{{route('admin.posts.destroy', ['post' => $post->id])}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Elimina</button>
+          </form>
         </td>
       </tr>
 
