@@ -51,9 +51,9 @@ class PostController extends Controller
       $slug_base = $slug;
       $counter = 1;
       while ($current_post) {
-        $slug .= $slug_base . '-' . $counter;
+        $slug = $slug_base . '-' . $counter;
         $counter++;
-        $current_post = Post::where('slug', $slug_base)->first();
+        $current_post = Post::where('slug', $slug)->first();
       }
       $new_post->slug = $slug;
 

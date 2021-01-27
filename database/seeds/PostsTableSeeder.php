@@ -29,9 +29,9 @@ class PostsTableSeeder extends Seeder
         $counter = 1;
         //se esiste gia', concateno un numero allo slug base
         while ($current_post) {
-          $slug .= $slug_base . '-' . $counter;
+          $slug = $slug_base . '-' . $counter;
           $counter++;
-          $current_post = Post::where('slug', $slug_base)->first();
+          $current_post = Post::where('slug', $slug)->first();
         }
         $new_post->slug = $slug;
         $new_post->save();
