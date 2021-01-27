@@ -23,6 +23,16 @@
             <label>Data:</label>
             <input type="date" name="date" value="{{$post->date}}" class="form-control">
           </div>
+          <div class="form-group">
+            <label>Categoria</label>
+            <select class="form-control" name="category_id">
+                <option value="">-- seleziona categoria --</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" {{ $category->id == $post->category_id ? 'selected=selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
           <button type="submit" class="btn btn-primary">Salva</button>
         </form>
       </div>
