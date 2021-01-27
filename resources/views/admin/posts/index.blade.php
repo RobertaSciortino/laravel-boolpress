@@ -23,7 +23,12 @@
           {{$post->slug}}
         </td>
         <td>
-
+          <a href="#" class="btn btn-info">
+            Visualizza
+          </a>
+          <a href="{{ route('admin.posts.create')}}" class="btn btn-primary">
+            Crea
+          </a>
         </td>
       </tr>
 
