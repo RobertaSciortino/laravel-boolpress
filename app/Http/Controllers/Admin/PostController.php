@@ -73,7 +73,7 @@ class PostController extends Controller
       if(!$post){
         abort(404);
       }
-      
+
       $data = [
         'post' => $post
       ];
@@ -88,7 +88,15 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+      if(!$post){
+        abort(404);
+      }
+
+      $data = [
+        'post' => $post
+      ];
+
+      return view('admin.posts.edit', $data);
     }
 
     /**
@@ -98,9 +106,26 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+      $data = $request->all();
+
+      if($data['title'] != $post->title) {
+        $slug = Str::slug($data['title']);
+        $current_post = Post::where('slug', $slug)->first();
+        $slug_base = $slug;
+        $counter = 1;
+        while ($current_post) {
+          $slug = $slug_base . '-' . $counter;
+          $counter++;
+          $current_post = Post::where('slug', $slug)->first();
+        }
+        $data['slug'] = $slug;
+      }
+
+      $post->update($data);
+
+      return redirect()->route('admin.posts.index');
     }
 
     /**
