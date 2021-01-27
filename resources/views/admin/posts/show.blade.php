@@ -10,6 +10,9 @@
         <p>
           {{$post->content}}
         </p>
+        <p>
+          Categoria: {{$post->category ? $post->category->name : '-'}}
+        </p>
       </div>
     </div>
   </div>
