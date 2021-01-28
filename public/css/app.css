@@ -10944,3 +10944,15 @@ a.text-dark:focus {
   }
 }
 
+ul {
+  list-style-type: circle;
+}
+
+.content {
+  font-size: 1.8rem;
+}
+
+.title-list-item {
+  font-size: 1.35rem;
+}
+
