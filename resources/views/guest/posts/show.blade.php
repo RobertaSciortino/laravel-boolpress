@@ -13,7 +13,13 @@
         <p>
           Categoria:
           <span class="text-uppercase category">
-            {{$post->category ? $post->category->name : '-'}}
+            @if ($post->category)
+              <a href="{{ route('categories.show', ['slug' => $post->category->slug])}}">
+                {{ $post->category->name }}
+              </a>
+            @else
+              -
+            @endif
           </span>
         </p>
         <p>
@@ -23,7 +29,7 @@
               {{ $tag->name }}{{ !$loop->last ? ',' : ''}}
             @empty
               -
-            @endforelse 
+            @endforelse
           </span>
         </p>
       </div>
