@@ -16,6 +16,16 @@
             {{$post->category ? $post->category->name : '-'}}
           </span>
         </p>
+        <p>
+          Tags:
+          <span class="text-uppercase category">
+            @forelse ($post->tags as $tag)
+              {{ $tag->name }}{{ !$loop->last ? ',' : ''}}
+            @empty
+              -
+            @endforelse 
+          </span>
+        </p>
       </div>
     </div>
     <div class="row">
