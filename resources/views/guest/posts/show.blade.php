@@ -26,7 +26,9 @@
           Tags:
           <span class="text-uppercase category">
             @forelse ($post->tags as $tag)
-              {{ $tag->name }}{{ !$loop->last ? ',' : ''}}
+              <a href="{{ route('tags.show', ['slug' => $tag->slug])}}">
+                {{ $tag->name }}{{ !$loop->last ? ',' : ''}}
+              </a>
             @empty
               -
             @endforelse

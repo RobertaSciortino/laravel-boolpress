@@ -18,6 +18,7 @@ Route::get('/contatti', 'HomeController@contatti')->name('contatti');
 Route::get('/posts', 'PostController@index')->name('posts');
 Route::get('/posts/{slug}', 'PostController@show')->name('post');
 Route::get('/categories/{slug}', 'CategoryController@show')->name('categories.show');
+Route::get('/tags/{slug}', 'TagController@show')->name('tags.show');
 
 Auth::routes(['register' => false]);
 
