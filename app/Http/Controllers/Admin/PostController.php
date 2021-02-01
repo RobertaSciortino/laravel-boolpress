@@ -131,6 +131,16 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+      //validazione
+      $request->validate([
+        'title' => 'required|max:255',
+        'content' => 'required',
+        'author'=> 'required|max:50',
+        'date' => 'required|date',
+        'category_id' => 'nullable|exists:categories,id',
+        'tags' => 'exists:tags,id'
+      ]);
+
       $data = $request->all();
 
       if($data['title'] != $post->title) {
@@ -148,7 +158,10 @@ class PostController extends Controller
 
       $post->update($data);
 
-      $post->tags()->sync($data['tags']);
+      //verifico se sono stati selezionati tag
+      if(array_key_exists('tags', $data)){
+        $post->tags()->sync($data['tags']);
+      }
 
       return redirect()->route('admin.posts.index');
     }
