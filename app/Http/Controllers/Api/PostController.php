@@ -8,13 +8,12 @@ use App\Post;
 
 class PostController extends Controller
 {
-  public function index()
-  {
+  public function index(){
     $posts = Post::all();
 
     return response()->json([
       'success' => true,
-      'result' => $posts
+      'results' => $posts
     ]);
   }
 }
