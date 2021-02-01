@@ -75,7 +75,10 @@ class PostController extends Controller
 
       $new_post->save();
 
-      $new_post->tags()->sync($data['tags']);
+      //verifico se sono stati selezionati tag
+      if(array_key_exists('tags', $data)){
+        $new_post->tags()->sync($data['tags']);
+      }
 
       return redirect()->route('admin.posts.index');
     }

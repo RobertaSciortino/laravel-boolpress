@@ -22,14 +22,14 @@
           </div>
           <div class="form-group">
             <label>Autore:</label>
-            <input type="text" name="author" value="{{old('author')}}" class="form-control" >
+            <input type="text" name="author" value="{{old('author')}}" class="form-control">
             @error('author')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
           </div>
           <div class="form-group">
             <label>Data:</label>
-            <input type="date" name="date" value="{{old('date')}}" class="form-control" >
+            <input type="date" name="date" value="{{old('date')}}" class="form-control">
             @error('data')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
