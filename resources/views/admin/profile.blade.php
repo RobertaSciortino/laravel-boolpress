@@ -35,9 +35,12 @@
                         {{ Auth::user()->api_token }}
                       </dd>
                     @else
-                      <button type="button" name="button" class="btn btn-primary">
-                        Genera Api Token
-                      </button>
+                      <form action="{{route('admin.generate_token')}}" method="post">
+                        @csrf
+                        <button type="submit" name="button" class="btn btn-primary">
+                          Genera API Token
+                        </button>
+                      </form>
                     @endif
                   </dl>
                 </div>
